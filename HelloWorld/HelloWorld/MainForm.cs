@@ -55,6 +55,7 @@ namespace HelloWorld
 
         private void MainForm_DragOver(object sender, DragEventArgs e)
         {
+            //New comment
             e.Effect = DragDropEffects.Move;
         }
 
