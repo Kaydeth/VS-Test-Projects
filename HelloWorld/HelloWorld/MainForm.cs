@@ -19,6 +19,11 @@ namespace HelloWorld
 
         private void clickButton_Click(object sender, EventArgs e)
         {
+            if (helloStartLocation.IsEmpty)
+            {
+                helloStartLocation = new Point(helloLabel.Location.X, helloLabel.Location.Y);
+            }
+
             if( helloLabel.Visible == true)
             {
                 helloLabel.Visible = false;
@@ -26,7 +31,7 @@ namespace HelloWorld
             else
             {
                 helloLabel.Visible = true;
-                helloLabel.Location = new Point(12, 18);
+                helloLabel.Location = helloStartLocation;
             }
         }
 
@@ -40,11 +45,17 @@ namespace HelloWorld
 
         private void MainForm_DragDrop(object sender, DragEventArgs e)
         {
-            helloLabel.Location = this.PointToClient(new Point(e.X, e.Y));
+            Point drop_point = new Point(e.X, e.Y);
+            drop_point = this.PointToClient(drop_point);
+            drop_point.Offset(-dragStartX, -dragStartY);
+            helloLabel.Location = drop_point;
         }
 
         private void helloLabel_MouseDown(object sender, MouseEventArgs e)
         {
+            Console.WriteLine("Drag start is {0:N}, {1:N}", e.X, e.Y);
+            dragStartX = e.X;
+            dragStartY = e.Y;
             helloLabel.DoDragDrop(helloLabel, DragDropEffects.Move);
         }
 
@@ -58,7 +69,14 @@ namespace HelloWorld
             //Another New comment
             //New comment
             e.Effect = DragDropEffects.Move;
+            Point drop_point = new Point(e.X, e.Y);
+            drop_point = this.PointToClient(drop_point);
+            drop_point.Offset(-dragStartX, -dragStartY);
+            helloLabel.Location = drop_point;
         }
 
+        private int dragStartX;
+        private int dragStartY;
+        private Point helloStartLocation;
     }
 }

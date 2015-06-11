@@ -1,9 +1,0 @@
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.Properties.Resources.resources
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.csproj.GenerateResource.Cache
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
-C:\luke\Visual Studio 2013\Projects\HelloWorld\HelloWorld\obj\Debug\HelloWorld.MainForm.resources
