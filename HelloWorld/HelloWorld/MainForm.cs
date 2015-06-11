@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace HelloWorld
 {
@@ -75,8 +76,48 @@ namespace HelloWorld
             helloLabel.Location = drop_point;
         }
 
+        private void labelText1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (labelText1.Checked)
+            {
+                helloLabel.Text = labelText1.Text;
+            }
+        }
+
+        private void labelText2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (labelText2.Checked)
+            {
+                helloLabel.Text = labelText2.Text;
+            }
+        }
+
+        private void runCmdButton_Click(object sender, EventArgs e)
+        {
+            Process p = new Process();
+            // Redirect the output stream of the child process.
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.FileName = "CMD.exe";
+            p.StartInfo.Arguments = "/C dir";
+            p.Start();
+            // Do not wait for the child process to exit before
+            // reading to the end of its redirected stream.
+            // p.WaitForExit();
+            // Read the output stream first and then wait.
+            string output = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+
+            char [] delimiters = {'\n'};
+            List<string> cmd_out = output.Split(delimiters).ToList();
+            cmdOutputBox.DataSource = cmd_out;
+
+            Console.WriteLine(output);
+        }
+
         private int dragStartX;
         private int dragStartY;
         private Point helloStartLocation;
+
     }
 }
